@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="MyItems" EntityType="Model1.Store.MyItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Events" EntityType="Model1.Store.Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Places" EntityType="Model1.Store.Places" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="People" EntityType="Model1.Store.People" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Dinamics" EntityType="Model1.Store.Dinamics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MyItemsPerson" EntityType="Model1.Store.MyItemsPerson" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MyItemsDinamic" EntityType="Model1.Store.MyItemsDinamic" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="MyItemsEvent" Association="Model1.Store.MyItemsEvent">
+      <End Role="MyItems" EntitySet="MyItems" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyItemsPerson_MyItems" Association="Model1.Store.FK_MyItemsPerson_MyItems">
+      <End Role="MyItems" EntitySet="MyItems" />
+      <End Role="MyItemsPerson" EntitySet="MyItemsPerson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyItemsPerson_Person" Association="Model1.Store.FK_MyItemsPerson_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="MyItemsPerson" EntitySet="MyItemsPerson" />
+    </AssociationSet>
+    <AssociationSet Name="MyItemsPlace" Association="Model1.Store.MyItemsPlace">
+      <End Role="MyItems" EntitySet="MyItems" />
+      <End Role="Place" EntitySet="Places" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyItemsDinamic_MyItems" Association="Model1.Store.FK_MyItemsDinamic_MyItems">
+      <End Role="MyItems" EntitySet="MyItems" />
+      <End Role="MyItemsDinamic" EntitySet="MyItemsDinamic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyItemsDinamic_Dinamic" Association="Model1.Store.FK_MyItemsDinamic_Dinamic">
+      <End Role="Dinamic" EntitySet="Dinamics" />
+      <End Role="MyItemsDinamic" EntitySet="MyItemsDinamic" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MyItems">
+    <Key>
+      <PropertyRef Name="IId" />
+    </Key>
+    <Property Name="IId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IPath" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IIsPhoto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IMark" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IDelete" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Event_EId" Type="int" Nullable="true" />
+    <Property Name="Place_PID" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EId" />
+    </Key>
+    <Property Name="EId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Places">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="People">
+    <Key>
+      <PropertyRef Name="PId" />
+    </Key>
+    <Property Name="PId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PPrenume" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PType" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dinamics">
+    <Key>
+      <PropertyRef Name="DId" />
+    </Key>
+    <Property Name="DId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DDescription" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MyItemsPerson">
+    <Key>
+      <PropertyRef Name="MyItems_IId" />
+      <PropertyRef Name="People_PId" />
+    </Key>
+    <Property Name="MyItems_IId" Type="int" Nullable="false" />
+    <Property Name="People_PId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MyItemsDinamic">
+    <Key>
+      <PropertyRef Name="MyItems_IId" />
+      <PropertyRef Name="Dinamics_DId" />
+    </Key>
+    <Property Name="MyItems_IId" Type="int" Nullable="false" />
+    <Property Name="Dinamics_DId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="MyItemsEvent">
+    <End Role="MyItems" Type="Model1.Store.MyItems" Multiplicity="*" />
+    <End Role="Event" Type="Model1.Store.Events" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="EId" />
+      </Principal>
+      <Dependent Role="MyItems">
+        <PropertyRef Name="Event_EId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MyItemsPlace">
+    <End Role="MyItems" Type="Model1.Store.MyItems" Multiplicity="*" />
+    <End Role="Place" Type="Model1.Store.Places" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Place">
+        <PropertyRef Name="PID" />
+      </Principal>
+      <Dependent Role="MyItems">
+        <PropertyRef Name="Place_PID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyItemsPerson_MyItems">
+    <End Role="MyItems" Type="Model1.Store.MyItems" Multiplicity="1" />
+    <End Role="MyItemsPerson" Type="Model1.Store.MyItemsPerson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MyItems">
+        <PropertyRef Name="IId" />
+      </Principal>
+      <Dependent Role="MyItemsPerson">
+        <PropertyRef Name="MyItems_IId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyItemsPerson_Person">
+    <End Role="MyItemsPerson" Type="Model1.Store.MyItemsPerson" Multiplicity="*" />
+    <End Role="Person" Type="Model1.Store.People" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PId" />
+      </Principal>
+      <Dependent Role="MyItemsPerson">
+        <PropertyRef Name="People_PId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyItemsDinamic_MyItems">
+    <End Role="MyItems" Type="Model1.Store.MyItems" Multiplicity="1" />
+    <End Role="MyItemsDinamic" Type="Model1.Store.MyItemsDinamic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MyItems">
+        <PropertyRef Name="IId" />
+      </Principal>
+      <Dependent Role="MyItemsDinamic">
+        <PropertyRef Name="MyItems_IId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyItemsDinamic_Dinamic">
+    <End Role="MyItemsDinamic" Type="Model1.Store.MyItemsDinamic" Multiplicity="*" />
+    <End Role="Dinamic" Type="Model1.Store.Dinamics" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Dinamic">
+        <PropertyRef Name="DId" />
+      </Principal>
+      <Dependent Role="MyItemsDinamic">
+        <PropertyRef Name="Dinamics_DId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

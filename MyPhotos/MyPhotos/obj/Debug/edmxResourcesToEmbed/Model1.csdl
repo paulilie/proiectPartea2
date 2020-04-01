@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MyItems" EntityType="Model1.MyItems" />
+    <EntitySet Name="Events" EntityType="Model1.Event" />
+    <EntitySet Name="Places" EntityType="Model1.Place" />
+    <EntitySet Name="People" EntityType="Model1.Person" />
+    <EntitySet Name="Dinamics" EntityType="Model1.Dinamic" />
+    <AssociationSet Name="MyItemsEvent" Association="Model1.MyItemsEvent">
+      <End Role="MyItems" EntitySet="MyItems" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="MyItemsPerson" Association="Model1.MyItemsPerson">
+      <End Role="MyItems" EntitySet="MyItems" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="MyItemsPlace" Association="Model1.MyItemsPlace">
+      <End Role="MyItems" EntitySet="MyItems" />
+      <End Role="Place" EntitySet="Places" />
+    </AssociationSet>
+    <AssociationSet Name="MyItemsDinamic" Association="Model1.MyItemsDinamic">
+      <End Role="MyItems" EntitySet="MyItems" />
+      <End Role="Dinamic" EntitySet="Dinamics" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MyItems">
+    <Key>
+      <PropertyRef Name="IId" />
+    </Key>
+    <Property Name="IId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IPath" Type="String" Nullable="false" />
+    <Property Name="IName" Type="String" Nullable="false" />
+    <Property Name="IDescription" Type="String" Nullable="false" />
+    <Property Name="IType" Type="String" Nullable="false" />
+    <Property Name="IDate" Type="String" Nullable="false" />
+    <Property Name="IIsPhoto" Type="String" Nullable="false" />
+    <Property Name="IMark" Type="String" Nullable="false" />
+    <Property Name="IDelete" Type="String" Nullable="false" />
+    <NavigationProperty Name="Event" Relationship="Model1.MyItemsEvent" FromRole="MyItems" ToRole="Event" />
+    <NavigationProperty Name="People" Relationship="Model1.MyItemsPerson" FromRole="MyItems" ToRole="Person" />
+    <NavigationProperty Name="Place" Relationship="Model1.MyItemsPlace" FromRole="MyItems" ToRole="Place" />
+    <NavigationProperty Name="Dinamics" Relationship="Model1.MyItemsDinamic" FromRole="MyItems" ToRole="Dinamic" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EId" />
+    </Key>
+    <Property Name="EId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EName" Type="String" Nullable="false" />
+    <NavigationProperty Name="MyItems" Relationship="Model1.MyItemsEvent" FromRole="Event" ToRole="MyItems" />
+  </EntityType>
+  <EntityType Name="Place">
+    <Key>
+      <PropertyRef Name="PID" />
+    </Key>
+    <Property Name="PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PName" Type="String" Nullable="false" />
+    <NavigationProperty Name="MyItems" Relationship="Model1.MyItemsPlace" FromRole="Place" ToRole="MyItems" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PId" />
+    </Key>
+    <Property Name="PId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PName" Type="String" Nullable="false" />
+    <Property Name="PPrenume" Type="String" Nullable="false" />
+    <Property Name="PType" Type="String" Nullable="false" />
+    <NavigationProperty Name="MyItems" Relationship="Model1.MyItemsPerson" FromRole="Person" ToRole="MyItems" />
+  </EntityType>
+  <EntityType Name="Dinamic">
+    <Key>
+      <PropertyRef Name="DId" />
+    </Key>
+    <Property Name="DId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DDescription" Type="String" Nullable="false" />
+    <NavigationProperty Name="MyItems" Relationship="Model1.MyItemsDinamic" FromRole="Dinamic" ToRole="MyItems" />
+  </EntityType>
+  <Association Name="MyItemsEvent">
+    <End Type="Model1.MyItems" Role="MyItems" Multiplicity="*" />
+    <End Type="Model1.Event" Role="Event" Multiplicity="0..1" />
+  </Association>
+  <Association Name="MyItemsPerson">
+    <End Type="Model1.MyItems" Role="MyItems" Multiplicity="*" />
+    <End Type="Model1.Person" Role="Person" Multiplicity="*" />
+  </Association>
+  <Association Name="MyItemsPlace">
+    <End Type="Model1.MyItems" Role="MyItems" Multiplicity="*" />
+    <End Type="Model1.Place" Role="Place" Multiplicity="0..1" />
+  </Association>
+  <Association Name="MyItemsDinamic">
+    <End Type="Model1.MyItems" Role="MyItems" Multiplicity="*" />
+    <End Type="Model1.Dinamic" Role="Dinamic" Multiplicity="*" />
+  </Association>
+</Schema>

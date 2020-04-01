@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="MyItems">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.MyItems)">
+        <MappingFragment StoreEntitySet="MyItems">
+          <ScalarProperty Name="IId" ColumnName="IId" />
+          <ScalarProperty Name="IPath" ColumnName="IPath" />
+          <ScalarProperty Name="IName" ColumnName="IName" />
+          <ScalarProperty Name="IDescription" ColumnName="IDescription" />
+          <ScalarProperty Name="IType" ColumnName="IType" />
+          <ScalarProperty Name="IDate" ColumnName="IDate" />
+          <ScalarProperty Name="IIsPhoto" ColumnName="IIsPhoto" />
+          <ScalarProperty Name="IMark" ColumnName="IMark" />
+          <ScalarProperty Name="IDelete" ColumnName="IDelete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Event)">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="EId" ColumnName="EId" />
+          <ScalarProperty Name="EName" ColumnName="EName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Places">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Place)">
+        <MappingFragment StoreEntitySet="Places">
+          <ScalarProperty Name="PID" ColumnName="PID" />
+          <ScalarProperty Name="PName" ColumnName="PName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Person)">
+        <MappingFragment StoreEntitySet="People">
+          <ScalarProperty Name="PId" ColumnName="PId" />
+          <ScalarProperty Name="PName" ColumnName="PName" />
+          <ScalarProperty Name="PPrenume" ColumnName="PPrenume" />
+          <ScalarProperty Name="PType" ColumnName="PType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dinamics">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Dinamic)">
+        <MappingFragment StoreEntitySet="Dinamics">
+          <ScalarProperty Name="DId" ColumnName="DId" />
+          <ScalarProperty Name="DDescription" ColumnName="DDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MyItemsEvent" TypeName="Model1.MyItemsEvent" StoreEntitySet="MyItems">
+      <EndProperty Name="Event">
+        <ScalarProperty Name="EId" ColumnName="Event_EId" />
+      </EndProperty>
+      <EndProperty Name="MyItems">
+        <ScalarProperty Name="IId" ColumnName="IId" />
+      </EndProperty>
+      <Condition ColumnName="Event_EId" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MyItemsPerson" TypeName="Model1.MyItemsPerson" StoreEntitySet="MyItemsPerson">
+      <EndProperty Name="MyItems">
+        <ScalarProperty Name="IId" ColumnName="MyItems_IId" />
+      </EndProperty>
+      <EndProperty Name="Person">
+        <ScalarProperty Name="PId" ColumnName="People_PId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MyItemsPlace" TypeName="Model1.MyItemsPlace" StoreEntitySet="MyItems">
+      <EndProperty Name="Place">
+        <ScalarProperty Name="PID" ColumnName="Place_PID" />
+      </EndProperty>
+      <EndProperty Name="MyItems">
+        <ScalarProperty Name="IId" ColumnName="IId" />
+      </EndProperty>
+      <Condition ColumnName="Place_PID" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MyItemsDinamic" TypeName="Model1.MyItemsDinamic" StoreEntitySet="MyItemsDinamic">
+      <EndProperty Name="MyItems">
+        <ScalarProperty Name="IId" ColumnName="MyItems_IId" />
+      </EndProperty>
+      <EndProperty Name="Dinamic">
+        <ScalarProperty Name="DId" ColumnName="Dinamics_DId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

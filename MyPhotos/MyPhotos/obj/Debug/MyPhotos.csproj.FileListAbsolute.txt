@@ -1,0 +1,22 @@
+F:\pipau\Desktop\proiect .net\MyPhotos\MyPhotos\obj\Debug\MyPhotos.csprojAssemblyReference.cache
+F:\pipau\Desktop\proiect .net\MyPhotos\MyPhotos\bin\Debug\MyPhotos.dll.config
+F:\pipau\Desktop\proiect .net\MyPhotos\MyPhotos\bin\Debug\MyPhotos.dll
+F:\pipau\Desktop\proiect .net\MyPhotos\MyPhotos\bin\Debug\MyPhotos.pdb
+F:\pipau\Desktop\proiect .net\MyPhotos\MyPhotos\bin\Debug\EntityFramework.dll
+F:\pipau\Desktop\proiect .net\MyPhotos\MyPhotos\bin\Debug\EntityFramework.SqlServer.dll
+F:\pipau\Desktop\proiect .net\MyPhotos\MyPhotos\bin\Debug\EntityFramework.xml
+F:\pipau\Desktop\proiect .net\MyPhotos\MyPhotos\bin\Debug\EntityFramework.SqlServer.xml
+F:\pipau\Desktop\proiect .net\MyPhotos\MyPhotos\obj\Debug\MyPhotos.csproj.CopyComplete
+F:\pipau\Desktop\proiect .net\MyPhotos\MyPhotos\obj\Debug\MyPhotos.dll
+F:\pipau\Desktop\proiect .net\MyPhotos\MyPhotos\obj\Debug\MyPhotos.pdb
+F:\pipau\Desktop\MyPhotos\MyPhotos\bin\Debug\MyPhotos.dll.config
+F:\pipau\Desktop\MyPhotos\MyPhotos\bin\Debug\MyPhotos.dll
+F:\pipau\Desktop\MyPhotos\MyPhotos\bin\Debug\MyPhotos.pdb
+F:\pipau\Desktop\MyPhotos\MyPhotos\bin\Debug\EntityFramework.dll
+F:\pipau\Desktop\MyPhotos\MyPhotos\bin\Debug\EntityFramework.SqlServer.dll
+F:\pipau\Desktop\MyPhotos\MyPhotos\bin\Debug\EntityFramework.xml
+F:\pipau\Desktop\MyPhotos\MyPhotos\bin\Debug\EntityFramework.SqlServer.xml
+F:\pipau\Desktop\MyPhotos\MyPhotos\obj\Debug\MyPhotos.csprojAssemblyReference.cache
+F:\pipau\Desktop\MyPhotos\MyPhotos\obj\Debug\MyPhotos.csproj.CopyComplete
+F:\pipau\Desktop\MyPhotos\MyPhotos\obj\Debug\MyPhotos.dll
+F:\pipau\Desktop\MyPhotos\MyPhotos\obj\Debug\MyPhotos.pdb
