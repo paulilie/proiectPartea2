@@ -8,42 +8,8 @@ using System.ServiceModel;
 
 namespace MyPhotos
 {
-    [ServiceContract]
-    public interface IItemsService
-    {
-        [OperationContract]
-        List<MyItems> GetItems();
-        [OperationContract]
-        Event AddEvents(string NameEvent);
-        [OperationContract]
-        Place AddLocation(string NameLocation);
-        [OperationContract]
-        void MarkToDelete(string path);
-        [OperationContract]
-        Place GetPlaceByName(string NameLocation);
-        [OperationContract]
-        Event GetEventByName(string NameEvent);
-        [OperationContract]
-        void AddItems(MyItems item, Event eveniment, Place loc);
-        [OperationContract]
-        void Move(string path1, string path2);
-        [OperationContract]
-        void RemoveWithPath(string path);
-        [OperationContract]
-        void Remove(MyItems item);
-        [OperationContract]
-        List<MyItems> GetItemsByPlace(Place place);
-        [OperationContract]
-        List<MyItems> GetItemsByProperty(Dinamic property);
-        [OperationContract]
-        List<MyItems> SearchByProperty(string flag, string property);
 
-        [OperationContract]
-        MyItems FindItem(string path);
-
-    }
-
-    public class ItemsService : IItemsService
+    public class ItemsService 
     {
         private readonly Model1Container context;
 
@@ -69,8 +35,7 @@ namespace MyPhotos
         }
         public Place AddLocation(string NameLocation)
         {
-            Place localizare = new Place();
-            localizare.PName = NameLocation;
+            Place localizare = new Place() {PName = NameLocation};
             this.context.Places.Add(localizare);
             this.context.SaveChanges();
             return localizare;
@@ -89,6 +54,26 @@ namespace MyPhotos
                 { item.IMark = "false";
                 }
             }
+            //Trimiti asa?
+            //da
+            //Poti face documentatia intre timp si mai vedem
+            //e aproape gata
+            //Deci trimiti asa?
+            //yees
+            // imi pregatesti tu folderul care trebuie arhivat ? :D
+            // te rooog :D, stiu ca sunt acolo
+            //Ii aratam Biancai
+            //Oook
+            //Te saluta Bianca
+            //si eu pe ea :*
+            //E ok daca ma duc la o tigara si fac alea dupa?
+            //siguuur
+            //A zis Bianca sa intri pe skype si iti explica ea cat fumez
+            //pai iesi din pc :))
+            //Bine....daca ma dai afara...
+            //
+            //\Paaaaa
+            //stam pe skype 
         }
         public Place GetPlaceByName(string NameLocation)
         {
@@ -102,13 +87,26 @@ namespace MyPhotos
             return item;
         }
 
-        public void AddItems(MyItems item, Event eveniment, Place loc)
+        public void AddItems(MyItems item, String eveniment, String loc)
         {
-            item.Event = eveniment;
-            item.Place = loc;
-            eveniment.MyItems.Add(item);
-            loc.MyItems.Add(item);
-            this.context.MyItems.Add(item);
+            MyItems item1 = new MyItems()
+                {IPath = item.IPath, IDelete = item.IDelete, IDate = item.IDate, IDescription = item.IDescription};
+            if (eveniment != string.Empty)
+            {
+                var event1 = AddEvents(eveniment);
+                item1.Event = event1;
+                event1.MyItems.Add(item1);
+            }
+
+            if (loc != string.Empty)
+            {
+                var place = AddLocation(loc);
+                item1.Place = place;
+                place.MyItems.Add(item1);
+
+            }
+
+            this.context.MyItems.Add(item1);
             this.context.SaveChanges();
         }
 
@@ -175,6 +173,16 @@ namespace MyPhotos
         {
             var item = this.context.MyItems.FirstOrDefault(i => i.IPath == path);
             return item;
+        }
+
+        public Place getPlaceByItem(string Path)
+        {
+            return context.Places.Where(p => p.MyItems.Any(i => i.IPath == Path)).FirstOrDefault();
+        }
+
+        public Event getEventByItem(string Path)
+        {
+            return context.Events.Where(p => p.MyItems.Any(i => i.IPath == Path)).FirstOrDefault();
         }
 
     }

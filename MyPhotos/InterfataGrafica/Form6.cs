@@ -28,13 +28,16 @@ namespace InterfataGrafica
             }
             this.textBox4.Text = CurentItem.IDate;
             this.textBox6.Text = CurentItem.IType;
-            if (CurentItem.Event != null)
+            ItemsServiceClient service=new ItemsServiceClient();
+            var PlaceItem = service.getPlaceByItem(CurentItem.IPath);
+            var EventItem= service.getEventByItem(CurentItem.IPath);
+            if (EventItem != null)
             {
-                this.textBox7.Text = CurentItem.Event.EName;
+                this.textBox7.Text = EventItem.EName;
             }
-            if (CurentItem.Place != null)
+            if (PlaceItem != null)
             {
-                this.textBox5.Text = CurentItem.Place.PName;
+                this.textBox5.Text = PlaceItem.PName;
             }
             this.richTextBox1.Text = CurentItem.IDescription;
 

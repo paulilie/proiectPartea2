@@ -22,7 +22,7 @@ namespace InterfataGrafica
         private string Event;
         private string Description;
         private string path;
-        private ItemsService context;
+        private ItemsServiceClient context;
 
 
 
@@ -30,7 +30,7 @@ namespace InterfataGrafica
         {
             InitializeComponent();
            
-            context = new ItemsService();
+            context = new ItemsServiceClient();
 
             var codecs = ImageCodecInfo.GetImageEncoders();
             var codecFilter = "Image Files|";
@@ -62,8 +62,7 @@ namespace InterfataGrafica
         public Form3(string path)
         {
             InitializeComponent();
-            context = new ItemsService();
-
+            context = new ItemsServiceClient();
             this.path = path;
             textBox2.Text = path;
             context.RemoveWithPath(path);
@@ -113,8 +112,6 @@ namespace InterfataGrafica
                 this.Description = "";
             }
 
-            var events= context.AddEvents(this.Location);
-            var place = context.AddLocation(this.Event);
             MyItems item = new MyItems();
 
             item.IDescription = this.Description;
@@ -139,9 +136,8 @@ namespace InterfataGrafica
 
             item.IType = System.IO.Path.GetExtension(path);
 
-            context.AddItems(item, events, place);
+            context.AddItems(item, this.Event, this.Location);
             this.Close();
-
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)

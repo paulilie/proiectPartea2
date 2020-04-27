@@ -7,11 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Runtime.Serialization;
+
+    
+
 namespace MyPhotos
 {
     using System;
     using System.Collections.Generic;
-    
+    [DataContract]
     public partial class Person
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,13 +23,17 @@ namespace MyPhotos
         {
             this.MyItems = new HashSet<MyItems>();
         }
-    
+        [DataMember]
         public int PId { get; set; }
+        [DataMember]
         public string PName { get; set; }
+        [DataMember]
         public string PPrenume { get; set; }
+        [DataMember]
         public string PType { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [DataMember]
         public virtual ICollection<MyItems> MyItems { get; set; }
     }
 }

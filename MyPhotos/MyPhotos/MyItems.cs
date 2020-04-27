@@ -11,31 +11,48 @@ namespace MyPhotos
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public partial class MyItems
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+       
         public MyItems()
         {
             this.People = new HashSet<Person>();
             this.Dinamics = new HashSet<Dinamic>();
         }
-    
+
+        [DataMember]
         public int IId { get; set; }
+        [DataMember]
         public string IPath { get; set; }
+        [DataMember]
         public string IName { get; set; }
+        [DataMember]
         public string IDescription { get; set; }
+        [DataMember]
         public string IType { get; set; }
+        [DataMember]
         public string IDate { get; set; }
+        [DataMember]
         public string IIsPhoto { get; set; }
+        [DataMember]
         public string IMark { get; set; }
+        [DataMember]
         public string IDelete { get; set; }
     
+        [DataMember]
         public virtual Event Event { get; set; }
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Person> People { get; set; }
+        [DataMember]
         public virtual Place Place { get; set; }
+       
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [DataMember]
         public virtual ICollection<Dinamic> Dinamics { get; set; }
     }
 }

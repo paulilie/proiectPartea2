@@ -14,14 +14,17 @@ namespace InterfataGrafica
 {
     public partial class Form1 : Form
     {
-        private readonly ItemsService Service;
+        private readonly ItemsServiceClient Service;
         
 
         public Form1()
         {
             InitializeComponent();
-            Service = new ItemsService();
-            this.dataGridView1.DataSource = Service.GetItems();
+            Service = new ItemsServiceClient();
+           var items= Service.GetItems();
+           Console.WriteLine(items);
+            this.dataGridView1.DataSource = items;
+
         }
 
         private void button1_Click(object sender, EventArgs e)

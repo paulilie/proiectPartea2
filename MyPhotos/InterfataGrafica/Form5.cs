@@ -26,7 +26,7 @@ namespace InterfataGrafica
         {
             if (this.richTextBox2.Text != null )
             {
-                ItemsService service = new ItemsService();
+                ItemsServiceClient service = new ItemsServiceClient();
                 service.Move(richTextBox1.Text, richTextBox2.Text);
             }
             this.Close();

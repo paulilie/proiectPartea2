@@ -27,7 +27,7 @@ namespace InterfataGrafica
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ItemsService item = new ItemsService();
+            ItemsServiceClient item = new ItemsServiceClient();
 
             string flag = "";
 
@@ -45,7 +45,7 @@ namespace InterfataGrafica
                 flag = "3";
             }
 
-            this.items = item.SearchByProperty(flag, this.richTextBox1.Text);
+            this.items = item.SearchByProperty(flag, this.richTextBox1.Text).ToList();
             this.Close();
 
 

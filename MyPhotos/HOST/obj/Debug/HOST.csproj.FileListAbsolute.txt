@@ -1,0 +1,17 @@
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\HOST.exe.config
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\HOST.exe
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\HOST.pdb
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\ObjectWCF.dll
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\MyPhotos.dll
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\EntityFramework.dll
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\ObjectWCF.pdb
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\MyPhotos.pdb
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\MyPhotos.dll.config
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\EntityFramework.xml
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\obj\Debug\HOST.csprojAssemblyReference.cache
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\obj\Debug\HOST.csproj.CopyComplete
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\obj\Debug\HOST.exe
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\obj\Debug\HOST.pdb
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\EntityFramework.SqlServer.dll
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\ObjectWCF.dll.config
+F:\pipau\Desktop\proiectPartea2\MyPhotos\HOST\bin\Debug\EntityFramework.SqlServer.xml
